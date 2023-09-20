@@ -1,8 +1,0 @@
-query admin_cart_item_count_service {
-  adminCartItemCountService {
-    count
-    service {
-      name
-    }
-  }
-}

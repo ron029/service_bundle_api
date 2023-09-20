@@ -1,8 +1,0 @@
-query service_category($id: ID!) {
-  serviceCategory(id: $id) {
-    name
-    id
-    description
-    image
-  }
-}

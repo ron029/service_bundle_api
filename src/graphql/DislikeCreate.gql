@@ -1,7 +1,0 @@
-mutation CreateDislike($dislikedUserId: ID!) {
-  createDislike(input: {
-    dislikedUserId: $dislikedUserId
-  }) {
-    errors
-  }
-}

@@ -1,8 +1,0 @@
-query category {
-  categories{
-    id
-    name
-    image
-    description
-  }
-}
