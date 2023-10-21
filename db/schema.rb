@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_17_062912) do
+ActiveRecord::Schema.define(version: 2023_10_08_055539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(version: 2023_09_17_062912) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "end_date"
+    t.integer "duration"
+    t.integer "interval"
     t.index ["service_id"], name: "index_time_slots_on_service_id"
   end
 
