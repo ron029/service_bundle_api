@@ -2,6 +2,7 @@ class TimeSlot < ApplicationRecord
   belongs_to :service
   before_validation :print_attributes_before_save
 
+  validates :duration, :interval, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
   validates :capacity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :start_date, :end_date, :start_time, :end_time, presence: true
   validates_date :start_date, on_or_after: -> { Date.current }
