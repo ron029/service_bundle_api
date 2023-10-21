@@ -8,6 +8,8 @@ module Types
       field :start_time, String, null: true
       field :end_time, String, null: true
       field :capacity, Integer, null: true
+      field :duration, Integer, null: true
+      field :interval, Integer, null: true
       field :created_at, GraphQL::Types::ISO8601DateTime, null: false
       field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 

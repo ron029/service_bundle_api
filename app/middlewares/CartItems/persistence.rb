@@ -1,8 +1,9 @@
 module CartItems
   class Persistence
-    attr_reader :current_user
+    attr_reader :current_user, :errors, :cart_item
 
     def initialize(current_user = nil)
+      @errors = ActiveModel::Errors.new(self)
       @current_user = current_user
     end
 
@@ -14,19 +15,17 @@ module CartItems
                 else
                   current_user_cart.id
                 end
-
-      c = CartItem.create(
+      c = CartItem.new(
         cart_id: cart_id, service_id: params[:service_id],
         date: params[:date], time: params[:time], status: 0
       )
-      # binding.pry
-      rescue ActiveRecord::RecordInvalid => e
-        c.errors.add(:base, "Error: #{c.errors.full_messages.join(', ')}")
+      errors = c.save ? [] : c.errors.full_messages
+      { errors: errors, cart_item: c }
     end
 
     def update(params)
       cart_item = CartItem.find(params[:id])
-      cart_item.update_column("status", params[:status])
+      cart_item.update_column('status', params[:status])
       cart_item
     end
 

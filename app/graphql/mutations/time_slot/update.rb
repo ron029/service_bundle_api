@@ -9,7 +9,9 @@ module Mutations
       argument :end_date, String, required: true
       argument :start_time, String, required: true
       argument :end_time, String, required: true
-      argument :capacity, Integer, required: true
+      argument :capacity, Integer, required: false
+      argument :duration, Integer, required: false
+      argument :interval, Integer, required: false
 
       field :errors, [String], null: true
       field :time_slot, Types::Models::TimeSlotType, null: true

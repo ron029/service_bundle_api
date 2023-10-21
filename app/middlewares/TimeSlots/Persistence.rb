@@ -13,21 +13,25 @@ module TimeSlots
         end_date: params[:end_date],
         start_time: params[:start_time],
         end_time: params[:end_time],
-        capacity: params[:capacity]
+        capacity: params[:capacity],
+        duration: params[:duration],
+        interval: params[:interval]
       )
     end
 
     def update(params)
-      user = TimeSlot.find(params[:id])
-      user.update(
+      time_slot = TimeSlot.find(params[:id])
+      time_slot.update(
         service_id: params[:service_id],
         start_date: params[:start_date],
         end_date: params[:end_date],
         start_time: params[:start_time],
         end_time: params[:end_time],
-        capacity: params[:capacity]
+        capacity: params[:capacity],
+        duration: params[:duration],
+        interval: params[:interval]
       )
-      user
+      time_slot
     end
 
     def delete(params)

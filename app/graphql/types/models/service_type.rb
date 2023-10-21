@@ -17,6 +17,8 @@ module Types
         argument :end_time, String, required: false
       end
       field :service_categories, [Types::Models::ServiceCategoryType], null: true
+      field :cart_item_tally, [Types::Models::CartItemTallyType], null: true
+      field :cart_item, [Types::Models::CartItemType], null: true
 
       def service_categories
         ServiceCategory.all
@@ -31,6 +33,9 @@ module Types
         formatted_time_slots = time_slots.to_a.map do |time_slot|
           {
             id: time_slot.id, # Include the time slot ID
+            duration: time_slot.duration,
+            capacity: time_slot.capacity,
+            interval: time_slot.interval,
             start_date: time_slot.start_date.strftime('%Y-%m-%d'), # Format date as 'YYYY-MM-DD'
             end_date: time_slot.end_date.strftime('%Y-%m-%d'), # Format date as 'YYYY-MM-DD'
             start_time: time_slot.start_time.strftime('%H:%M:%S'), # Format time as 'HH:MM:SS'
@@ -46,6 +51,20 @@ module Types
 
       def service_category_id
         object.service_category
+      end
+
+      def cart_item_tally
+        cart_items = CartItem.where('date >= ?', Date.today).where(service_id: object.id).where.not(status: [0, 3]).group(:date).count
+        cart_items.map { |date, count| { date: date, count: count } }
+      end
+
+      def cart_item
+        today = Date.today
+
+        # Query to filter and sort cart_items
+        @cart_items = CartItem.where('date >= ? AND status NOT IN (0, 3)', today)
+                              .where(service_id: object.id)
+                              .order(date: :asc, time: :asc)
       end
     end
   end

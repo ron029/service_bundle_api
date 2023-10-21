@@ -1,11 +1,14 @@
 module Queries
   class CartHistories < AuthorisedQueries
-    type [Types::Models::CartHistoryType], null: false
     argument :id, ID, required: false
 
+    type Types::Models::CartHistoryType, null: false
+
     def resolve(id: nil)
-      result = id.nil? ? CartHistory.all : CartHistory.find_by(id: id)
-      Array.wrap(result)
+      cart_history = id.nil? ? nil : CartHistory.find_by(id: id)
+      raise GraphQL::ExecutionError, 'CartHistory not found' if cart_history.nil?
+
+      cart_history
     end
   end
 end

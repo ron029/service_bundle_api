@@ -11,6 +11,8 @@ module Types
       field :created_at, GraphQL::Types::ISO8601DateTime, null: false
       field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
       field :cart_item, [Types::Models::CartItemType], null: true
+      field :user, Types::Models::UserType, null: false
+      field :status, Boolean, null: false
 
       def cart
         object.cart
@@ -23,6 +25,16 @@ module Types
 
       def payment_option
         object.payment_option
+      end
+
+      def user
+        User.find_by_id(context[:current_user].id)
+      end
+
+      def status
+        current_user_id = User.find_by_id(context[:current_user].id).id
+        cart_user_id = object.cart.user_id
+        cart_user_id == current_user_id
       end
     end
   end

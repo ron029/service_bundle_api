@@ -13,8 +13,8 @@ module Mutations
       def resolve(params)
         cart_item = CartItems::Persistence.new(current_user).create(params)
         {
-          errors: cart_item.errors.full_messages,
-          cart_item: cart_item
+          errors: cart_item[:errors],
+          cart_item: cart_item[:service]
         }
       end
     end

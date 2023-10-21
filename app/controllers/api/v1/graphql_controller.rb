@@ -40,13 +40,11 @@ class Api::V1::GraphqlController < ApplicationController
   end
 
   def decrypt_token(token)
-    begin
-      decoded_token = JsonWebToken.decode(token)
-      user_id = decoded_token['user_id']
-      User.find_by(id: user_id)
-    rescue JWT::DecodeError, JWT::ExpiredSignature
-      nil
-    end
+    decoded_token = JsonWebToken.decode(token)
+    return if decoded_token.nil?
+
+    user_id = decoded_token['user_id']
+    User.find_by(id: user_id)
   end
 
   # Handle variables in form data, JSON body, or a blank value
