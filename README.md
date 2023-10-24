@@ -15,6 +15,7 @@ Service Bundle API is a Ruby on Rails application built on version 6, integratin
 8. [Customization](#customization)
 9. [Contributing](#contributing)
 10. [License](#license)
+11. [Front-End Repository](#front-end-repository)
 
 ## Features
 
@@ -82,7 +83,7 @@ Before setting up the Service Bundle API, ensure you have the following dependen
     rails server
     ```
 
-Your Service Bundle API is now running and accessible at `http://localhost:3000`.
+Your Service Bundle API is now running and accessible at `http://localhost:3000/api/v1/graphql`.
 
 ## Configuration
 
@@ -97,7 +98,7 @@ Service Bundle API uses JWT for authentication. To access protected resources, i
 
 ### GraphQL Queries and Mutations
 
-Service Bundle API uses GraphQL as the query language. Access the GraphQL endpoint at `http://localhost:3000/api/v1/graphql` to interact with your data. Review the `app/graphql` directory to see available types and mutations. For documentation and queries, consider using GraphiQL or a similar tool.
+Service Bundle API uses GraphQL as the query language. Access the GraphQL endpoint at `http://localhost:3000/api/v1/graphiql` to interact with your data. Review the `app/graphql` directory to see available types and mutations. For documentation and queries, consider using GraphiQL or a similar tool.
 
 ### Customization
 
@@ -115,6 +116,15 @@ We welcome contributions to the Service Bundle API. Please follow our [contribut
 ## License
 
 Service Bundle API is open-source and licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Front-End Repository
+
+If you are looking for the front-end code that complements this API, you can find it in the following repository:
+
+[Service Bundle Front-End Repository](https://github.com/ron029/service_bundle_frontend)
+
+Please visit the front-end repository for details on setting up and running the user interface that works seamlessly with this API.
+
 
 ---
 
