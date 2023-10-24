@@ -42,7 +42,6 @@ Before setting up the Service Bundle API, ensure you have the following dependen
 - Ruby on Rails 6
 - PostgreSQL
 - Bundler
-- Node.js (for JavaScript runtime)
 
 ## Installation
 
@@ -64,20 +63,14 @@ Before setting up the Service Bundle API, ensure you have the following dependen
     bundle install
     ```
 
-4. Install JavaScript dependencies:
-
-    ```bash
-    yarn install
-    ```
-
-5. Create and migrate the database:
+4. Create and migrate the database:
 
     ```bash
     rails db:create
     rails db:migrate
     ```
 
-6. Start the Rails server:
+5. Start the Rails server:
 
     ```bash
     rails server
