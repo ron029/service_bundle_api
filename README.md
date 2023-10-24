@@ -20,6 +20,3 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
->>>>>>> 2a1909ea129a2a512fc127032bd6c2de3ba5a786
