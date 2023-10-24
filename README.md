@@ -98,7 +98,7 @@ Service Bundle API uses JWT for authentication. To access protected resources, i
 
 ### GraphQL Queries and Mutations
 
-Service Bundle API uses GraphQL as the query language. Access the GraphQL endpoint at `http://localhost:3000/api/v1/graphiql` to interact with your data. Review the `app/graphql` directory to see available types and mutations. For documentation and queries, consider using GraphiQL or a similar tool.
+Service Bundle API uses GraphQL as the query language. Access the GraphQL endpoint at `http://localhost:3000/api/v1/graphql` to interact with your data. Review the `app/graphql` directory to see available types and mutations. For documentation and queries, consider using GraphiQL or a similar tool.
 
 ### Customization
 
