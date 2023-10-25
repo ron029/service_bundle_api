@@ -1,7 +1,7 @@
 module Types
   class MutationType < Types::BaseObject
     # TODO: remove me
-    
+
     field :delete_time_slot, mutation: Mutations::TimeSlot::Delete
     field :create_time_slot, mutation: Mutations::TimeSlot::Create
     field :update_time_slot, mutation: Mutations::TimeSlot::Update
@@ -13,6 +13,7 @@ module Types
     field :create_cart_history, mutation: Mutations::CartHistory::Create
     field :update_status_admin_cart_item, mutation: Mutations::CartItem::UpdateStatusAdmin
     field :create_cart_item, mutation: Mutations::CartItem::Create
+    field :delete_cart_item, mutation: Mutations::CartItem::Delete
     field :create_user, mutation: Mutations::User::Create
     field :update_user, mutation: Mutations::User::Update
     field :delete_user, mutation: Mutations::User::Delete

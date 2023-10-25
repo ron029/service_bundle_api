@@ -29,6 +29,12 @@ module CartItems
       cart_item
     end
 
+    def delete(params)
+      cart_item = CartItem.find_by(id: params[:id])
+      cart_item.destroy
+      { errors: errors, cart_item: cart_item }
+    end
+
     def create_cart
        # Return the cart object, not its id
     end
