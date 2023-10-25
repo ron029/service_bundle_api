@@ -15,7 +15,6 @@ module Mutations
 
       def resolve(params)
         service = Services::Persistence.new(current_user).update(params)
-        # binding.pry
           {
             errors: !service.nil? ? [] : service.errors.full_messages,
             service: service
